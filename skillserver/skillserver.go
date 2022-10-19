@@ -75,6 +75,12 @@ func SetVerifyAWSCerts(doVerify bool) {
 	}
 }
 
+// Init will initialize the apps provided and add the alexa skill to an existing router. Use
+// this to add echo/alexa functionality to own webserver implementations. 
+func Init(apps map[string]interface{}, router *mux.Router) {
+	initialize(apps, router)
+}
+
 // Run will initialize the apps provided and start an HTTP server listening on the specified port.
 func Run(apps map[string]interface{}, port string) {
 	router := mux.NewRouter()
